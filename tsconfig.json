@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "lib": ["es6"],
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "types": ["node"],
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": [
+    "./toolkit"
+  ]
+}
+
