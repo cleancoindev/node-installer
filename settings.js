@@ -1,8 +1,10 @@
 const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 
+
+// This is an exmaple we have used for the Honey pot org used on xdai.
+// Replace with your own settings.
  const settings = {
   aclAddress: '0x6d3652655c59fc758942fa0a482a576146ccc2d6',
-  appName : 'conviction-beta.aragonpm.eth',
   appId: '0xabb88ccde8e73f80a3f4a14ef4f6bbfcc19f172a073a5d4cace3af06a8f2a182',
   appInitSig : 'function initialize(address,address,address,uint256,uint256,uint256,uint256)',
   appInitArgs: [
