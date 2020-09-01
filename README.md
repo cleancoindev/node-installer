@@ -4,6 +4,18 @@ Script for installing an app and setting up pemrissions on a single action (like
 
 The script only displays the `transaction` object. You can send the transaction using the truffle console (`web3.eth.sendTransaction()`)
 
+### How to run
+
+```
+# install dependencies
+yarn install
+# compile toolkit
+yarn compile
+# Get install transaction
+yarn start
+```
+
+
 ### Settings
 
 Here lives all the info necessary for installing and setting up the permissions of the app to install.
