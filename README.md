@@ -27,6 +27,7 @@ Here lives all the info necessary for installing and setting up the permissions 
   appInitArgs:     // The app initialize arguments
   contract:        // Address of the base contract
   daoAddress :     // Address of the dao
+  from:            // Account that will be creating the transaction
   network :        // Network
 ```
 

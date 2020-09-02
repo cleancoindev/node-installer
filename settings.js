@@ -18,6 +18,7 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
   ],
   contract: '0x6A992a38C8780b040657A6F83049e838b9575abd',
   daoAddress : '0xe9869a0bbc8fb8c61b7d81c33fa2ba84871b3b0e',
+  from : '0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50',
   network : 'xdai'
 
 }

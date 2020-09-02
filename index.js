@@ -70,7 +70,7 @@ async function main() {
     intentBasket,
     network,
     PROVIDER,
-    { accounts: ['0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50'] }
+    { accounts: [settings.from] }
   )
 
   console.log('transaction', transaction)
