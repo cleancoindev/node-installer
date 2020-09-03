@@ -6,7 +6,7 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
  const settings = {
   aclAddress: '0x6d3652655c59fc758942fa0a482a576146ccc2d6',
   appId: '0xabb88ccde8e73f80a3f4a14ef4f6bbfcc19f172a073a5d4cace3af06a8f2a182',
-  appInitSig : 'function initialize(address,address,address,uint256,uint256,uint256,uint256)',
+  appInitSig : 'initialize(address,address,address,uint256,uint256,uint256,uint256)',
   appInitArgs: [
     '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 
     '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4', 
