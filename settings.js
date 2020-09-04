@@ -5,11 +5,15 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 // Replace with your own settings.
  const settings = {
   aclAddress: '0x6d3652655c59fc758942fa0a482a576146ccc2d6',
+  // conviction-beta.aragonpm.eth
   appId: '0xabb88ccde8e73f80a3f4a14ef4f6bbfcc19f172a073a5d4cace3af06a8f2a182',
   appInitSig : 'initialize(address,address,address,uint256,uint256,uint256,uint256)',
   appInitArgs: [
-    '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 
+    // Honey token address
+    '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9',
+    // Vault address 
     '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4', 
+    // Honey token address
     '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 
     '9999799', 
     '1000000', 
@@ -60,6 +64,13 @@ const permissions = {
       entity: '0x5141970563C7d70a129A05f575e9e34DF4bD81d8',
       role: '0x9d4f140430c9045e12b5a104aa9e641c09b980a26ab8e12a32a2f3d155229ae3', // UPDATE_SETTINGS_ROLE
       where: 'app'
+    }
+  ],
+  revoke: [
+    {
+      entity: '0x46f041410ba3cf76938f0578afc16da9a500cfcc',  // Old conviction voting
+      role: '0x8502233096d909befbda0999bb8ea2f3a6be3c138b9fbf003752a4c8bce86f6c', //TRANSFER_ROLE
+      where: '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4' //vault address
     }
   ]
 }

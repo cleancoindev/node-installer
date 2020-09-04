@@ -58,3 +58,13 @@ Array of permissions to create. Each item in the array should have the form of
   where:   // Address of the app where the permission is going to be granted (if the permission will be granted in the app to install, then you should leave it as 'app') 
 },
 ```
+
+### Revoke
+
+```
+{
+  entity:  // Entity to revoke the permission
+  role:    // Role's bytes  
+  where:   // Address of the app from which to revoke the permission
+},
+```
