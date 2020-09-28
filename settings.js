@@ -15,14 +15,18 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
     '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4', 
     // Honey token address
     '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 
+    // decay
     '9999799', 
+    // _maxRatio
     '1000000', 
+    // _weight
     '1000', 
+    // _minThresholdStakePercentage
     '50000000000000000'
   ],
   contract: '0x6A992a38C8780b040657A6F83049e838b9575abd',
   daoAddress : '0xe9869a0bbc8fb8c61b7d81c33fa2ba84871b3b0e',
-  from : '0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50',
+  from : '',
   network : 'xdai'
 
 }
@@ -68,7 +72,7 @@ const permissions = {
   ],
   revoke: [
     {
-      entity: '0x46f041410ba3cf76938f0578afc16da9a500cfcc',  // Old conviction voting
+      entity: '0xbe753d0130a4c1246fad11d3ad11864c591571ba',  // Old conviction voting 
       role: '0x8502233096d909befbda0999bb8ea2f3a6be3c138b9fbf003752a4c8bce86f6c', //TRANSFER_ROLE
       where: '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4' //vault address
     }
