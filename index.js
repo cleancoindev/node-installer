@@ -4,7 +4,7 @@ const {
   getTransactionPathFromIntentBasket,
 } = require('./dist')
 const { getInitPayload, buildNonceForAddress, buildPermissionIntents, calculateNewProxyAddress } = require('./utils')
-const { settings, permissions } = require('./settings')
+const { settings, permissions, extraActions } = require('./settings')
 
 const newAppInstanceSignature = 'newAppInstance(bytes32,address,bytes,bool)'
 
@@ -60,7 +60,9 @@ async function main() {
     proxyAddress,
   )
 
-  const intentBasket = [installAppIntent, ...permissionIntents]
+  const registerHookIntent = [settings.tokenManager, 'registerHook(address)', [proxyAddress]]
+
+  const intentBasket = [installAppIntent, ...permissionIntents, registerHookIntent, ...extraActions]
 
   console.log('intent basket', intentBasket)
 

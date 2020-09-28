@@ -5,6 +5,7 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 // Replace with your own settings.
  const settings = {
   aclAddress: '0x6d3652655c59fc758942fa0a482a576146ccc2d6',
+  tokenManager: '0x2118c3343f6d6d7a2b2ff68c82581cc188166d54',
   // conviction-beta.aragonpm.eth
   appId: '0xabb88ccde8e73f80a3f4a14ef4f6bbfcc19f172a073a5d4cace3af06a8f2a182',
   appInitSig : 'initialize(address,address,address,uint256,uint256,uint256,uint256)',
@@ -51,6 +52,12 @@ const permissions = {
       role: '0x3e317d8f3de745777f176274dda437b0b9bbbe0704f48e9be1821136c177b933', // CANCEL_PROPOSAL_ROLE
       where: 'app',
       manager: '0x00f9092e5806628d7a44e496c503cec608e64f1f' // dandelion-voting
+    },
+    {
+      entity: '0x00f9092e5806628d7a44e496c503cec608e64f1f', // dandelion-voting
+      role: 'ed0b3a1f9ade7707147da3c9b4175ccde2d62145e0ba6b632770cbd2f1c9e34b', // SET_HOOK_ROLE
+      where: settings.tokenManager, // hooked TM
+      manager: '0x00f9092e5806628d7a44e496c503cec608e64f1f' // dandelion-voting
     }
   ], 
   grant: [
@@ -78,5 +85,11 @@ const permissions = {
     }
   ]
 }
+
+const extraActions = [
+  // tollgate.changeFeeAmount(100000000000000000)
+  ['0xbf5e915efe399db0a1ddc7b99e1bb80474469aea', 'changeFeeAmount(uint256)', ['100000000000000000']]
+]
+
  
-module.exports = { settings, permissions }
+module.exports = { settings, permissions, extraActions }
