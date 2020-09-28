@@ -21,7 +21,7 @@ export async function getTransactionPathFromIntentBasket(
 }> {
   const wrapper = await getWrapper(dao, environment, provider, options)
 
-  const transactionPath = await wrapper.getTransactionPathForIntentBasket(intentBasket, { checkMode: 'single' })
+  const transactionPath = await wrapper.getTransactionPathForIntentBasket(intentBasket)
 
   if (!transactionPath.transactions.length)
     throw new Error('Cannot find transaction path for executing action')
