@@ -58,12 +58,6 @@ const permissions = {
       role: roles.CANCEL_PROPOSAL_ROLE, 
       where: 'app',
       manager: settings.dandelionVoting // dandelion-voting
-    },
-    {
-      entity: settings.dandelionVoting, 
-      role: '0xed0b3a1f9ade7707147da3c9b4175ccde2d62145e0ba6b632770cbd2f1c9e34b', // SET_HOOK_ROLE
-      where: settings.tokenManager, // hooked TM
-      manager: settings.dandelionVoting
     }
   ], 
   grant: [
