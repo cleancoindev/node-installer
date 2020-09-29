@@ -34,6 +34,9 @@ async function main() {
     proxyAddress,
   )
 
+  // const apps = await getInstalledApps(daoAddress, getNetworkType(), PROVIDER)
+  // console.log('apps',apps)
+
   const registerHookIntent = [settings.tokenManager, 'registerHook(address)', [proxyAddress]]
 
   const intentBasket = [installAppIntent, ...permissionIntents, registerHookIntent, ...extraActions]

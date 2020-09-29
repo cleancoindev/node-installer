@@ -3,33 +3,34 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 // This is an exmaple we have used for the Honey pot org used on xdai.
 // Replace with your own settings.
  const settings = {
-  aclAddress: '0xd8d039fd5a853c7b021f5bb26fb0dadf74fd11af',
+  aclAddress: '0x621375bb212cbc32ef89813465db25e4fdb08991',
   // conviction-beta.open.aragonpm.eth
   appId: '0xe4691f497f5e74daf61612cea2d5a540b095805872218eaa9108aa5fd76779a2',
   appInitSig : 'initialize(address,address,address,uint256,uint256,uint256,uint256)',
   appInitArgs: [
     // Honey token address
-    '0x1DCa6B30E7E56CD001e161F99b3ABf04016E178d',
+    '0x5E352ED38066417d70817399dC6D9d9236b5F203',
     // Vault address 
-    '0x31c43bf990c55ef9d5af22cdff00ee717973ff57', 
+    '0x9e4b594a5580bbae1d3aca55f1ee0bfb0d784483', 
     // Honey token address
-    '0x1DCa6B30E7E56CD001e161F99b3ABf04016E178d', 
+    '0x5E352ED38066417d70817399dC6D9d9236b5F203', 
     // decay
     '9999799', 
     // _maxRatio
     '1000000', 
     // _weight
-    '1000', 
+    '2500', 
     // _minThresholdStakePercentage
     '50000000000000000'
   ],
   contract: '0xe5dc3c7788281ea24f7a0a4340e43195c6a6d8d9',
-  dandelionVoting: '0xdbac6ee92894b2070521d190973e7ffeb90573f6',
-  daoAddress : '0x970aefa356057bd36e7be67ba5b439557495a4e2',
+  dandelionVoting: '0x9bd3fcc7118e6f4d4643d133f1148e3236a9b627',
+  daoAddress : '0x209a192773ecd17c367d325f41f95170127f7e48',
   from : '0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50',
   chainId : 4,
-  tokenManager: '0x0fdf9bcc531c21085f4ce44c777a01c8cf55571d',
-  vault: '0x31c43bf990c55ef9d5af22cdff00ee717973ff57'
+  tokenManager: '0xdcc2d00fc5f887f45a984891d8b1a18764282a8c',
+  tollgate: '0x19e6237a4551c3210124b662484354e5c5ade38a',
+  vault: '0x9e4b594a5580bbae1d3aca55f1ee0bfb0d784483'
 }
 
 
@@ -87,7 +88,7 @@ const permissions = {
   ],
   revoke: [
     {
-      entity: '0xbe753d0130a4c1246fad11d3ad11864c591571ba',  // Old conviction voting 
+      entity: '0xe7d47aa173e36455539208ed74056ae0487fd19d',  // Old conviction voting 
       role: roles.TRANSFER_ROLE,
       where: settings.vault
     }
@@ -96,7 +97,7 @@ const permissions = {
 
 const extraActions = [
   // tollgate.changeFeeAmount(100000000000000000)
-  // ['0xe837f9a4c7aa7b218eee9905da0799cabf3c73f5', 'changeFeeAmount(uint256)', ['5000000000000000000']]
+  [settings.tollgate, 'changeFeeAmount(uint256)', ['5000000000000000000']]
 ]
 
  
