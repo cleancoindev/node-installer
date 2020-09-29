@@ -36,6 +36,7 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 const roles = {
   CANCEL_PROPOSAL_ROLE: '0x3e317d8f3de745777f176274dda437b0b9bbbe0704f48e9be1821136c177b933',
   CREATE_PROPOSALS_ROLE: '0xbf05b9322505d747ab5880dfb677dc4864381e9fc3a25ccfa184a3a53d02f4b2',
+  TRANSFER_ROLE: '0x8502233096d909befbda0999bb8ea2f3a6be3c138b9fbf003752a4c8bce86f6c',
   UPDATE_SETTINGS_ROLE: '0x9d4f140430c9045e12b5a104aa9e641c09b980a26ab8e12a32a2f3d155229ae3'
 }
 
@@ -63,24 +64,24 @@ const permissions = {
   grant: [
     {
       entity: 'app',
-      role: '0x8502233096d909befbda0999bb8ea2f3a6be3c138b9fbf003752a4c8bce86f6c', //TRANSFER_ROLE
+      role: roles.TRANSFER_ROLE, 
       where: settings.vault
     },
     {
       entity: '0x5141970563C7d70a129A05f575e9e34DF4bD81d8',
-      role: '0x3e317d8f3de745777f176274dda437b0b9bbbe0704f48e9be1821136c177b933', // CANCEL_PROPOSAL_ROLE
+      role: roles.CANCEL_PROPOSAL_ROLE, 
       where: 'app'
     },
     {
       entity: '0x5141970563C7d70a129A05f575e9e34DF4bD81d8',
-      role: '0x9d4f140430c9045e12b5a104aa9e641c09b980a26ab8e12a32a2f3d155229ae3', // UPDATE_SETTINGS_ROLE
+      role: roles.UPDATE_SETTINGS_ROLE, 
       where: 'app'
     }
   ],
   revoke: [
     {
       entity: '0xbe753d0130a4c1246fad11d3ad11864c591571ba',  // Old conviction voting 
-      role: '0x8502233096d909befbda0999bb8ea2f3a6be3c138b9fbf003752a4c8bce86f6c', //TRANSFER_ROLE
+      role: roles.TRANSFER_ROLE,
       where: settings.vault
     }
   ]
