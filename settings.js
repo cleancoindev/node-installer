@@ -27,7 +27,7 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
   dandelionVoting: '0x00f9092e5806628d7a44e496c503cec608e64f1f',
   daoAddress : '0xe9869a0bbc8fb8c61b7d81c33fa2ba84871b3b0e',
   from : '',
-  network : 'xdai',
+  chainId : 100,
   tokenManager: '0x2118c3343f6d6d7a2b2ff68c82581cc188166d54',
   vault: '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4'
 }
