@@ -3,17 +3,17 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 // This is an exmaple we have used for the Honey pot org used on xdai.
 // Replace with your own settings.
  const settings = {
-  aclAddress: '0x6d3652655c59fc758942fa0a482a576146ccc2d6',
-  // conviction-beta.aragonpm.eth
-  appId: '0xabb88ccde8e73f80a3f4a14ef4f6bbfcc19f172a073a5d4cace3af06a8f2a182',
+  aclAddress: '0xd8d039fd5a853c7b021f5bb26fb0dadf74fd11af',
+  // conviction-beta.open.aragonpm.eth
+  appId: '0xe4691f497f5e74daf61612cea2d5a540b095805872218eaa9108aa5fd76779a2',
   appInitSig : 'initialize(address,address,address,uint256,uint256,uint256,uint256)',
   appInitArgs: [
     // Honey token address
-    '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9',
+    '0x1DCa6B30E7E56CD001e161F99b3ABf04016E178d',
     // Vault address 
-    '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4', 
+    '0x31c43bf990c55ef9d5af22cdff00ee717973ff57', 
     // Honey token address
-    '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 
+    '0x1DCa6B30E7E56CD001e161F99b3ABf04016E178d', 
     // decay
     '9999799', 
     // _maxRatio
@@ -23,19 +23,20 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
     // _minThresholdStakePercentage
     '50000000000000000'
   ],
-  contract: '0x6A992a38C8780b040657A6F83049e838b9575abd',
-  dandelionVoting: '0x00f9092e5806628d7a44e496c503cec608e64f1f',
-  daoAddress : '0xe9869a0bbc8fb8c61b7d81c33fa2ba84871b3b0e',
-  from : '',
-  network : 'xdai',
-  tokenManager: '0x2118c3343f6d6d7a2b2ff68c82581cc188166d54',
-  vault: '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4'
+  contract: '0xe5dc3c7788281ea24f7a0a4340e43195c6a6d8d9',
+  dandelionVoting: '0xdbac6ee92894b2070521d190973e7ffeb90573f6',
+  daoAddress : '0x970aefa356057bd36e7be67ba5b439557495a4e2',
+  from : '0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50',
+  chainId : 4,
+  tokenManager: '0x0fdf9bcc531c21085f4ce44c777a01c8cf55571d',
+  vault: '0x31c43bf990c55ef9d5af22cdff00ee717973ff57'
 }
 
 
 const roles = {
   CANCEL_PROPOSAL_ROLE: '0x3e317d8f3de745777f176274dda437b0b9bbbe0704f48e9be1821136c177b933',
   CREATE_PROPOSALS_ROLE: '0xbf05b9322505d747ab5880dfb677dc4864381e9fc3a25ccfa184a3a53d02f4b2',
+  SET_HOOK_ROLE: '0xed0b3a1f9ade7707147da3c9b4175ccde2d62145e0ba6b632770cbd2f1c9e34b',
   UPDATE_SETTINGS_ROLE: '0x9d4f140430c9045e12b5a104aa9e641c09b980a26ab8e12a32a2f3d155229ae3'
 }
 
@@ -58,6 +59,12 @@ const permissions = {
       role: roles.CANCEL_PROPOSAL_ROLE, 
       where: 'app',
       manager: settings.dandelionVoting // dandelion-voting
+    },
+    {	
+      entity: settings.dandelionVoting, // dandelion-voting	
+      role: roles.SET_HOOK_ROLE,
+      where: settings.tokenManager, // hooked TM	
+      manager: settings.dandelionVoting // dandelion-voting	
     }
   ], 
   grant: [
@@ -88,7 +95,7 @@ const permissions = {
 
 const extraActions = [
   // tollgate.changeFeeAmount(100000000000000000)
-  ['0xbf5e915efe399db0a1ddc7b99e1bb80474469aea', 'changeFeeAmount(uint256)', ['5000000000000000000']]
+  // ['0xe837f9a4c7aa7b218eee9905da0799cabf3c73f5', 'changeFeeAmount(uint256)', ['5000000000000000000']]
 ]
 
  
