@@ -61,12 +61,6 @@ const permissions = {
       role: roles.CANCEL_PROPOSAL_ROLE, 
       where: 'app',
       manager: settings.dandelionVoting // dandelion-voting
-    },
-    {	
-      entity: settings.dandelionVoting, // dandelion-voting	
-      role: roles.SET_HOOK_ROLE,
-      where: settings.tokenManager, // hooked TM	
-      manager: settings.dandelionVoting // dandelion-voting	
     }
   ], 
   grant: [
@@ -88,7 +82,7 @@ const permissions = {
   ],
   revoke: [
     {
-      entity: '',  // Old conviction voting 
+      entity: '0xbe753d0130a4c1246fad11d3ad11864c591571ba',  // Old conviction voting 
       role: roles.TRANSFER_ROLE,
       where: settings.vault
     },
