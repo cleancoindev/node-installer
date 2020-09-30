@@ -1,10 +1,13 @@
 const {
-  getTransactionPathFromIntentBasket, getInstalledApps,
+  getTransactionPathFromIntentBasket, getInstalledApps, execAppMethod
 } = require('./dist')
 const { getInitPayload, buildNonceForAddress, buildPermissionIntents, calculateNewProxyAddress } = require('./utils')
 const { settings, permissions, extraActions } = require('./settings')
 const { getProvider } = require('./providers')
 const { getNetworkType } = require('./web3-utils')
+
+const { encodeCallScript } = require('@aragon/test-helpers/evmScript')
+const { encodeActCall } = require('./dist')
 
 const PROVIDER = getProvider()
 const newAppInstanceSignature = 'newAppInstance(bytes32,address,bytes,bool)'
@@ -43,14 +46,21 @@ async function main() {
 
   console.log('intent basket', intentBasket)
 
-  // Get transaction path for install and permission intents
-  const { transaction } = await getTransactionPathFromIntentBasket(
-    daoAddress,
-    intentBasket,
-    getNetworkType(),
-    PROVIDER,
-    { accounts: [settings.from] }
-  )
+  const actions = intentBasket.map(([destination, methodSignature, params]) => ({
+    to: destination,
+    calldata: encodeActCall(methodSignature, params),
+  }))
+  console.log('actions', actions)
+
+  // Encode all actions into a single EVM script.
+  const script = encodeCallScript(actions)
+
+  const newVote = encodeCallScript([{to: settings.dandelionVoting, calldata: encodeActCall('newVote(bytes,string,bool)', [script, "some vote", false])}])
+  
+  // console.log(
+  //   `npx dao exec ${daoAddress} ${settings.dandelionVoting} newVote ${script} someVote --environment aragon:${getNetworkType()} `
+  // )
+  const transaction = await execAppMethod(daoAddress, settings.tollgate, 'forward(bytes)', newVote, null, 'rinkeby', PROVIDER)
 
   console.log('transaction', transaction)
 }

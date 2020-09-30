@@ -37,7 +37,7 @@ function buildPermissionIntents(
 
       return [
         aclAddress,
-        'createPermission',
+        'createPermission(address,address,bytes32,address)',
         [
           entity,
           counterfactualAppAddr,
@@ -57,7 +57,7 @@ function buildPermissionIntents(
     const who = entity === 'app' ? counterfactualAppAddr : entity
     const onApp = where === 'app' ? counterfactualAppAddr : where 
 
-    return [aclAddress, 'grantPermission', [who, onApp, role]]
+    return [aclAddress, 'grantPermission(address,address,bytes32)', [who, onApp, role]]
   })
 
   intents = intents.concat(grantPermissionIntents)
@@ -67,7 +67,7 @@ function buildPermissionIntents(
   }
 
   const revokePermissionIntents =  permissions.revoke.map(({ entity, role, where }) => {
-    return [aclAddress, 'revokePermission', [entity, where, role]]
+    return [aclAddress, 'revokePermission(address,address,bytes32)', [entity, where, role]]
   })
 
   intents = intents.concat(revokePermissionIntents)
