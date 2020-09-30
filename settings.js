@@ -3,17 +3,17 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
 // This is an exmaple we have used for the Honey pot org used on xdai.
 // Replace with your own settings.
  const settings = {
-  aclAddress: '0x621375bb212cbc32ef89813465db25e4fdb08991',
-  // conviction-beta.open.aragonpm.eth
-  appId: '0xe4691f497f5e74daf61612cea2d5a540b095805872218eaa9108aa5fd76779a2',
+  aclAddress: '0x6d3652655c59fc758942fa0a482a576146ccc2d6',
+  // conviction-beta.aragonpm.eth
+  appId: '0xabb88ccde8e73f80a3f4a14ef4f6bbfcc19f172a073a5d4cace3af06a8f2a182',
   appInitSig : 'initialize(address,address,address,uint256,uint256,uint256,uint256)',
   appInitArgs: [
     // Honey token address
-    '0x5E352ED38066417d70817399dC6D9d9236b5F203',
+    '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9',
     // Vault address 
-    '0x9e4b594a5580bbae1d3aca55f1ee0bfb0d784483', 
+    '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4', 
     // Honey token address
-    '0x5E352ED38066417d70817399dC6D9d9236b5F203', 
+    '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 
     // decay
     '9999799', 
     // _maxRatio
@@ -23,14 +23,14 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
     // _minThresholdStakePercentage
     '50000000000000000'
   ],
-  contract: '0xe5dc3c7788281ea24f7a0a4340e43195c6a6d8d9',
-  dandelionVoting: '0x9bd3fcc7118e6f4d4643d133f1148e3236a9b627',
-  daoAddress : '0x209a192773ecd17c367d325f41f95170127f7e48',
-  from : '0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50',
-  chainId : 4,
-  tokenManager: '0xdcc2d00fc5f887f45a984891d8b1a18764282a8c',
-  tollgate: '0x19e6237a4551c3210124b662484354e5c5ade38a',
-  vault: '0x9e4b594a5580bbae1d3aca55f1ee0bfb0d784483'
+  contract: '0x6A992a38C8780b040657A6F83049e838b9575abd',
+  dandelionVoting: '0x00f9092e5806628d7a44e496c503cec608e64f1f',
+  daoAddress : '0xe9869a0bbc8fb8c61b7d81c33fa2ba84871b3b0e',
+  from : '',
+  chainId : 100,
+  tokenManager: '0x2118c3343f6d6d7a2b2ff68c82581cc188166d54',
+  tollgate: '0xbf5e915efe399db0a1ddc7b99e1bb80474469aea',
+  vault: '0x05e42c4ae51ba28d8acf8c371009ad7138312ca4'
 }
 
 
@@ -88,7 +88,7 @@ const permissions = {
   ],
   revoke: [
     {
-      entity: '0x85ee9d29beb9d6af4cda0d52361f389054a2f389',  // Old conviction voting 
+      entity: '',  // Old conviction voting 
       role: roles.TRANSFER_ROLE,
       where: settings.vault
     },
