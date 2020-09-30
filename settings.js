@@ -26,7 +26,7 @@ const ANY_ENTITY = `0x${''.padEnd(40, 'f')}`
   contract: '0xe5dc3c7788281ea24f7a0a4340e43195c6a6d8d9',
   dandelionVoting: '0x9bd3fcc7118e6f4d4643d133f1148e3236a9b627',
   daoAddress : '0x209a192773ecd17c367d325f41f95170127f7e48',
-  from : '0xDc2aDfA800a1ffA16078Ef8C1F251D50DcDa1065',
+  from : '0x49C01b61Aa3e4cD4C4763c78EcFE75888b49ef50',
   chainId : 4,
   tokenManager: '0xdcc2d00fc5f887f45a984891d8b1a18764282a8c',
   tollgate: '0x19e6237a4551c3210124b662484354e5c5ade38a',
@@ -88,15 +88,17 @@ const permissions = {
   ],
   revoke: [
     {
-      entity: '0xe7d47aa173e36455539208ed74056ae0487fd19d',  // Old conviction voting 
+      entity: '0x85ee9d29beb9d6af4cda0d52361f389054a2f389',  // Old conviction voting 
       role: roles.TRANSFER_ROLE,
       where: settings.vault
-    }
+    },
   ]
 }
 
 const extraActions = [
   // tollgate.changeFeeAmount(100000000000000000)
+  [settings.tokenManager, 'revokeHook(uint256)', [0]], // First CV
+  [settings.tokenManager, 'revokeHook(uint256)', [2]], // Current CV
   [settings.tollgate, 'changeFeeAmount(uint256)', ['5000000000000000000']]
 ]
 

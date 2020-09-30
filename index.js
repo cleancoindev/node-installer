@@ -13,7 +13,7 @@ const PROVIDER = getProvider()
 const newAppInstanceSignature = 'newAppInstance(bytes32,address,bytes,bool)'
 
 async function main() {
-  const { aclAddress, appId, appInitSig, appInitArgs, contract, daoAddress } = settings
+  const { aclAddress, appId, appInitSig, appInitArgs, chainId, contract, daoAddress, from } = settings
   const initPayload =  await getInitPayload(appInitSig, appInitArgs)
 
   const installParams = [appId, contract, initPayload, false]
@@ -60,7 +60,7 @@ async function main() {
   // console.log(
   //   `npx dao exec ${daoAddress} ${settings.dandelionVoting} newVote ${script} someVote --environment aragon:${getNetworkType()} `
   // )
-  const transaction = await execAppMethod(daoAddress, settings.tollgate, 'forward(bytes)', newVote, null, 'rinkeby', PROVIDER)
+  const transaction = await execAppMethod(daoAddress, settings.tollgate, 'forward(bytes)', [newVote], null, getNetworkType(chainId), PROVIDER, { accounts: [from] })
 
   console.log('transaction', transaction)
 }

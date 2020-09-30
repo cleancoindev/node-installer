@@ -2,7 +2,7 @@ const settings = require("./settings")
 
 const DEFAULT_LOCAL_CHAIN = ''
 
-function getNetworkType(chainId = settings.chainId) {
+function getNetworkType(chainId) {
   chainId = String(chainId)
 
   if (chainId === '1') return 'mainnet'

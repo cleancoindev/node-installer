@@ -20,6 +20,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "compile": "tsc"
+    "build": "tsc"
   }
 }

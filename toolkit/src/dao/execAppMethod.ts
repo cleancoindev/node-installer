@@ -20,7 +20,10 @@ export async function execAppMethod(
   params: any[],
   progressHandler: (progressId: number) => void | undefined,
   environment: string,
-  provider: ethers.providers.Web3Provider
+  provider: ethers.providers.Web3Provider,
+  options?: {
+    accounts?: string[]
+  }
 ): Promise<{
   transactionPath: string
 }> {
@@ -28,7 +31,7 @@ export async function execAppMethod(
   if (progressHandler) progressHandler(1)
 
   const transactionPath = (
-    await getTransactionPath(dao, app, method, params, environment, provider)
+    await getTransactionPath(dao, app, method, params, environment, provider, options)
   )[0]
 
   if (!transactionPath)
