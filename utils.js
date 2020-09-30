@@ -33,14 +33,15 @@ function buildPermissionIntents(
 
   let intents = []
   const createPermissionIntents = permissions.create.map(
-    ({ entity, role, manager }) => {
+    ({ entity, role, manager, where }) => {
 
+      const onApp = where === 'app' ? counterfactualAppAddr : where 
       return [
         aclAddress,
         'createPermission(address,address,bytes32,address)',
         [
           entity,
-          counterfactualAppAddr,
+          onApp,
           role,
           manager,
         ],
