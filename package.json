@@ -14,7 +14,7 @@
     "node-fetch": "^2.6.0",
     "semver": "^7.3.2",
     "solidity-parser-antlr": "^0.4.11",
-    "web3-eth-abi": "1.2.6",
+    "web3-eth-abi": "1.7.3",
     "web3-providers-http": "^1.2.11"
   },
   "scripts": {
