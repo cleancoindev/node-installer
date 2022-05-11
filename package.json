@@ -7,7 +7,7 @@
     "@aragon/abis": "^1.1.0",
     "@aragon/wrapper": "5.0.0-rc.27",
     "@types/lodash": "^4.14.160",
-    "@types/node-fetch": "^2.5.7",
+    "@types/node-fetch": "^2.6.1",
     "@types/semver": "^7.3.3",
     "ethers": "4.0.46",
     "lodash": "^4.17.20",
