@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@aragon/abis": "^1.1.0",
-    "@aragon/wrapper": "5.0.0-rc.27",
+    "@aragon/wrapper": "5.5.3",
     "@types/lodash": "^4.14.160",
     "@types/node-fetch": "^2.5.7",
     "@types/semver": "^7.3.3",
